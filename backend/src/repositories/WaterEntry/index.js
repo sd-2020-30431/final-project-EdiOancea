@@ -1,16 +1,7 @@
-export default ({
-    db,
-}) => ({
-    create: async ({ userId, date, quantity }) => (
-        await db.WaterEntry.create({ userId, date, quantity })
-    ),
-    getAll: async userId => db.WaterEntry.findAll({ where: { userId } }),
-    getOne: async id => db.WaterEntry.findByPk(id),
-    update: async (id, { date, quantity }) => (
-        db.WaterEntry.update(
-            { date, quantity }, 
-            { where: { id } }
-        )
-    ),
-    delete: async id => db.WaterEntry.destroy({ where: { id } }),
+export default ({ db: { WaterEntry } }) => ({
+    create: async body => await WaterEntry.create(body),
+    getAll: async userId => WaterEntry.findAll({ where: { userId } }),
+    getOne: async id => WaterEntry.findByPk(id),
+    update: async (id, body) => WaterEntry.update(body, { where: { id } }),
+    delete: async id => WaterEntry.destroy({ where: { id } }),
 });

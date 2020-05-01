@@ -1,6 +1,4 @@
-export default ({
-    WaterEntryService,
-}) => ({
+export default ({ WaterEntryService }) => ({
     create: async (req, res) => {
         const { userId, body: { date, quantity } } = req;
 

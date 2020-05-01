@@ -1,6 +1,4 @@
-export default ({
-    UserService,
-}) => ({
+export default ({ UserService }) => ({
     create: async (req, res) => {
         const { body: { email, password }  } = req;
 
