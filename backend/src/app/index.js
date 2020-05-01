@@ -14,4 +14,3 @@ export default ({ Mediator, AuthMiddleware, ErrorMiddleware }) => {
 
 	return app;
 };
-
