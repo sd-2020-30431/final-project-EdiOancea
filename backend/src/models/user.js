@@ -39,7 +39,12 @@ module.exports = (sequelize, DataTypes) => {
 		user.email = user.email.toLowerCase();
 	});
 
-	User.associate = models => {};
+	User.associate = ({ WaterEntry }) => {
+		User.hasMany(WaterEntry, {
+			foreignKey: 'userId',
+			as: 'waterEntries',
+		});
+	};
 
 	return User;
 };
