@@ -1,6 +1,4 @@
-export default ({
-    AuthService,
-}) => ({
+export default ({ AuthService }) => ({
     signIn: async (req, res) => {
         const { body: { email, password } } = req;
 

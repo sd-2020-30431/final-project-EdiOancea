@@ -1,6 +1,4 @@
-export default ({
-    jwt,
-}) => (req, _, next) => {
+export default ({ jwt }) => (req, _res, next) => {
     const authorizationHeader = req.headers.authorization;
     req.userId = -1;
 
