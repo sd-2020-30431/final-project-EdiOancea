@@ -1,17 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 
-export default ({
-	mediator,
-	AuthMiddleware,
-}) => {
+export default ({ Mediator, AuthMiddleware, ErrorMiddleware }) => {
 	const app = express();
 	app.use(bodyParser.json());
 	app.use(AuthMiddleware);
 
-	mediator.forEach(({ route, method, callback }) => {
-		app[method](route, callback);
+	Mediator.forEach(({ route, method, callback }) => {
+		app[method](route, (req, res, next) => callback(req, res, next).catch(next));
 	});
+	
+	app.use(ErrorMiddleware);
 
 	return app;
 };

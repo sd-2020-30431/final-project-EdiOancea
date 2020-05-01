@@ -1,18 +1,14 @@
-export default ({
-    UserRepository,
-}) => ({
-    create: async ({ email, password }) => {
+export default ({ UserRepository, ErrorService: { throwConflictError } }) => ({
+    create: async body => {
+        const { email } = body;
+
         if (await UserRepository.isEmailUsed(email)) {
-            return {
-                error: 'Email is used pal',
-            };
+            throwConflictError('Email is already used.');
         }
 
-        return await UserRepository.create({ email, password });
+        return await UserRepository.create(body);
     },
     read: async userId => await UserRepository.get(userId),
-    update: async (userId, { firstName, lastName }) => (
-        await UserRepository.update(userId, { firstName, lastName })
-    ),
+    update: async (userId, body) => await UserRepository.update(userId, body),
     delete: async userId => await UserRepository.delete(userId),
 });

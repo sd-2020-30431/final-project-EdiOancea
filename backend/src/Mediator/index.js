@@ -1,6 +1,7 @@
 export default ({
     UserController,
     WaterEntryController,
+    IngredientController,
     AuthController,
 }) => ([
     { route: '/users', method: 'post', callback: UserController.create },
@@ -13,4 +14,9 @@ export default ({
     { route: '/entries/water/:id', method: 'get', callback: WaterEntryController.getOne },
     { route: '/entries/water/:id', method: 'put', callback: WaterEntryController.update },
     { route: '/entries/water/:id', method: 'delete', callback: WaterEntryController.delete },
+    { route: '/ingredients', method: 'post', callback: IngredientController.create },
+    { route: '/ingredients', method: 'get', callback: IngredientController.getAll },
+    { route: '/ingredients/:id', method: 'get', callback: IngredientController.getOne },
+    { route: '/ingredients/:id', method: 'put', callback: IngredientController.update },
+    { route: '/ingredients/:id', method: 'delete', callback: IngredientController.delete },
 ]);
