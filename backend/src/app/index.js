@@ -8,8 +8,10 @@ export default ({
 	const app = express();
 	app.use(bodyParser.json());
 	app.use(AuthMiddleware);
+
 	mediator.forEach(({ route, method, callback }) => {
-		app[method.toLowerCase()](route, callback);
+		console.log(method, route);
+		app[method](route, callback);
 	});
 
 	return app;

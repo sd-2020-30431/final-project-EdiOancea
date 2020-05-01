@@ -5,7 +5,15 @@ export default ({
         email, 
         password, 
     }),
-    get: async userId => await db.User.findByPk(userId),
+    get: async userId => await db.User.findByPk(
+        userId,
+        {
+            include: [{
+                model: db.WaterEntry,
+                as: 'waterEntries',
+            }],
+        },
+    ),
     update: async (userId, { firstName, lastName }) => (
         await db.User.update(
             { firstName, lastName }, 
