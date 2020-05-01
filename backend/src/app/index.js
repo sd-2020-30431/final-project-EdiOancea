@@ -10,7 +10,6 @@ export default ({
 	app.use(AuthMiddleware);
 
 	mediator.forEach(({ route, method, callback }) => {
-		console.log(method, route);
 		app[method](route, callback);
 	});
 
