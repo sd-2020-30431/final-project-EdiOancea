@@ -32,11 +32,11 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 0, 2),
   },
   title: {
-    margin: theme.spacing(1),
-  },
+		margin: theme.spacing(1),
+	},
 }));
 
-const SignUpPage = ({ onSubmit, validate, submitError }) => {
+const SignInPage = ({ onSubmit, validate, submitError }) => {
   const classes = useStyles();
 
   return (
@@ -53,24 +53,9 @@ const SignUpPage = ({ onSubmit, validate, submitError }) => {
                   <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5" className={classes.title}>
-                  Sign up
+                  Sign in
                 </Typography>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      autoComplete="fname"
-                      name="firstName"
-                      label="First Name"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      label="Last Name"
-                      name="lastName"
-                      autoComplete="lname"
-                    />
-                  </Grid>
                   <Grid item xs={12}>
                     <TextField
                       label="Email Address"
@@ -87,14 +72,6 @@ const SignUpPage = ({ onSubmit, validate, submitError }) => {
                       autoComplete="current-password"
                     />
                   </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      variant="outlined"
-                      name="repeatPassword"
-                      label="Repeat Password"
-                      type="password"
-                    />
-                  </Grid>
                 </Grid>
                 <Error error={submitError} touched alwaysThere />
                 <Button
@@ -104,12 +81,12 @@ const SignUpPage = ({ onSubmit, validate, submitError }) => {
                   color="primary"
                   className={classes.submit}
                 >
-                  Sign Up
+                  Sign in
                 </Button>
                 <Grid container justify="flex-end">
                   <Grid item>
-                    <Link href="/signin" variant="body2">
-                      Already have an account? Sign in
+                    <Link href="/signup" variant="body2">
+                      Don't have an account? Sign up
                     </Link>
                   </Grid>
                 </Grid>
@@ -122,4 +99,4 @@ const SignUpPage = ({ onSubmit, validate, submitError }) => {
   );
 };
 
-export default SignUpPage;
+export default SignInPage;

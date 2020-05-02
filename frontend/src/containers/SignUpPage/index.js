@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 
 import SignUpPageComponent from 'components/SignUpPage';
@@ -27,6 +27,7 @@ const schema = Yup.object().shape({
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
+  const submitError = useSelector(state => state.formError.signUp);
   const onSubmit = data => dispatch(signUp(data));
   const validate = getValidate(schema);
   
@@ -35,6 +36,7 @@ const SignUpPage = () => {
       {...{
         onSubmit,
         validate,
+        submitError,
       }}
     />   
   );
