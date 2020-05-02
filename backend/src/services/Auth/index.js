@@ -7,7 +7,7 @@ export default ({
     signIn: async ({ email, password }) => {
         const user = await UserRepository.getByEmail(email);
 
-        if (!user || !bcrypt.compare(password, user.password)) {
+        if (!user || !bcrypt.compareSync(password, user.password)) {
             throwValidationError('Invalid credentials');
         }
 
