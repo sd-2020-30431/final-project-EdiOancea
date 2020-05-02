@@ -10,16 +10,19 @@ import UserController from '../controllers/User';
 import AuthController from '../controllers/Auth';
 import WaterEntryController from '../controllers/WaterEntry';
 import IngredientController from '../controllers/Ingredient';
+import IngredientEntryController from '../controllers/IngredientEntry';
 
 import UserService from '../services/User';
 import AuthService from '../services/Auth';
 import ErrorService from '../services/Error';
 import WaterEntryService from '../services/WaterEntry';
 import IngredientService from '../services/Ingredient';
+import IngredientEntryService from '../services/IngredientEntry';
 
 import UserRepository from '../repositories/User';
 import WaterEntryRepository from '../repositories/WaterEntry';
 import IngredientRepository from '../repositories/Ingredient';
+import IngredientEntryRepository from '../repositories/IngredientEntry';
 
 import AuthMiddleware from '../middlewares/Auth';
 import ErrorMiddleware from '../middlewares/Error';
@@ -40,14 +43,17 @@ bottle.factory('UserController', UserController);
 bottle.factory('AuthController', AuthController);
 bottle.factory('WaterEntryController', WaterEntryController);
 bottle.factory('IngredientController', IngredientController);
+bottle.factory('IngredientEntryController', IngredientEntryController);
 bottle.factory('UserService', UserService);
 bottle.factory('AuthService', AuthService);
 bottle.factory('ErrorService', ErrorService);
 bottle.factory('WaterEntryService', WaterEntryService);
 bottle.factory('IngredientService', IngredientService);
+bottle.factory('IngredientEntryService', IngredientEntryService);
 bottle.factory('UserRepository', UserRepository);
 bottle.factory('WaterEntryRepository', WaterEntryRepository);
 bottle.factory('IngredientRepository', IngredientRepository);
+bottle.factory('IngredientEntryRepository', IngredientEntryRepository);
 bottle.factory('Validator', Validator);
 
 export default bottle;
