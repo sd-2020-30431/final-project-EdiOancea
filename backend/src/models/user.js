@@ -51,7 +51,6 @@ module.exports = (sequelize, DataTypes) => {
 
 	User.associate = ({ WaterEntry, Ingredient, IngredientEntry }) => {
 		User.hasMany(WaterEntry, { as: 'waterEntries' });
-		//User.belongsToMany(Ingredient, { as: 'ingredientsUsed', through: IngredientEntry });
 		User.hasMany(IngredientEntry);
 	};
 

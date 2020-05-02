@@ -6,7 +6,7 @@ export default ({ IngredientEntryService }) => ({
     },
     getAll: async (req, res) => {
         const { userId } = req;
-        console.log('hai bossss');
+
         res.json(await IngredientEntryService.getAll(userId));
     },
     getOne: async (req, res) => {
