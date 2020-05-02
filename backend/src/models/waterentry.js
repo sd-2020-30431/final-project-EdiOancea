@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
     const WaterEntry = sequelize.define('WaterEntry', {
 		quantity: {
@@ -16,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     }, {
 		underscored: true,
 	});
+
+	WaterEntry.associate = ({ User }) => {
+		WaterEntry.belongsTo(User);
+	}
 
     return WaterEntry;
 };
