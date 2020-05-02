@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import SignUpPageComponent from 'components/SignUpPage';
 import getValidate from 'containers/forms/getValidate';
-import { signUp } from 'actions/signUp';
+import { signUp } from 'actions/auth';
 
 const schema = Yup.object().shape({
   firstName: Yup.string().nullable(),
@@ -29,20 +29,12 @@ const SignUpPage = () => {
   const dispatch = useDispatch();
   const onSubmit = data => dispatch(signUp(data));
   const validate = getValidate(schema);
-  const initialValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    repeatPassword: '',
-  };
   
   return (
     <SignUpPageComponent
       {...{
         onSubmit,
         validate,
-        initialValues,
       }}
     />   
   );

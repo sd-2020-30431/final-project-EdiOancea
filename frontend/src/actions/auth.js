@@ -6,13 +6,18 @@ export const authenticateUser = token => ({
   payload: token,
 });
 
-export const signUp = data => async dispatch => {
-  await request('POST', '/users', data);
+export const signOut = () => ({
+  type: 'SIGN_OUT',
+});
 
-  return dispatch(authenticate(data));
+export const signUp = data => async dispatch => {
+  const result = await request('POST', '/users', data);
+  const { error } = result;
+
+  return error ? result : await dispatch(signIn(data));
 };
 
-export const authenticate = data => async dispatch => {
+export const signIn = data => async dispatch => {
   const res = await request('POST', '/auth', data);
   const { token } = await res.json();
   dispatch(authenticateUser(token));

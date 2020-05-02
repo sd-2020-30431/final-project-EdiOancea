@@ -1,4 +1,6 @@
-export default (state = {}, action) => {
+const initialState = {};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'AUTHENTICATE_USER':
       localStorage.setItem('token', action.payload);
@@ -11,7 +13,9 @@ export default (state = {}, action) => {
       return {
         ...state,
         ...action.payload,
-      }
+      };
+    case 'SIGN_OUT':
+      return initialState;
     default:
       return state;
   }
