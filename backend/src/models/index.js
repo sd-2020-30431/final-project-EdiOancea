@@ -35,6 +35,7 @@ export default () => {
 	db.Sequelize = Sequelize;
 	
 	db.sequelize.sync();
+	//db.sequelize.sync({ force: true });
 
 	return db;
 };

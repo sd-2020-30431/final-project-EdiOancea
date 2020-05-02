@@ -2,13 +2,13 @@ export default ({
     UserRepository, 
     jwt, 
     bcrypt,
-    ErrorService: { throwValdiationError },
+    ErrorService: { throwValidationError },
 }) => ({
     signIn: async ({ email, password }) => {
         const user = await UserRepository.getByEmail(email);
 
         if (!user || !bcrypt.compare(password, user.password)) {
-            throwValdiationError('Invalid credentials');
+            throwValidationError('Invalid credentials');
         }
 
         return { token: jwt.sign(user.id, process.env.SECRET_KEY) };
