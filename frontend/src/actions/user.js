@@ -9,5 +9,7 @@ export const getLoggedUser = () => async dispatch => {
 	const res = await request('GET', '/users/me');
 	const user = await res.json();
 
-	dispatch(setUser(user));
+	if (!user.error) {
+		dispatch(setUser(user));
+	}
 };
