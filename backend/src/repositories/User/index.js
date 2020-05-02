@@ -3,9 +3,12 @@ export default ({ db: { User } }) => ({
     get: async id => await User.findByPk(id),
     update: async (id, body) => await User.update(body, { where: { id } }),
     delete: async id => await User.destroy({ where: { id } }),
-    getByEmail: async email => await User.findOne({ where: { email } }),
-    isEmailUsed: async email => !!await User.findOne(
-        { where: { email } }, 
-        { paranoid: false }
-    ),
+    getByEmail: async email => await User.findOne({ 
+        where: { email }, 
+        scope: 'auth',
+    }),
+    isEmailUsed: async email => !!await User.findOne({ 
+        where: { email }, 
+        paranoid: false ,
+    }),
 });
