@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Route } from 'react-router-dom';
 import { getLoggedUser } from 'actions/user';
-import { authenticateUser } from 'actions/signUp';
+import { authenticateUser } from 'actions/auth';
 
 const ProtectedRoute = props => {
   const dispatch = useDispatch();

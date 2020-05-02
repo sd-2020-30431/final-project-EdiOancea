@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SignUpPage = ({ onSubmit, validate, initialValues }) => {
+const SignUpPage = ({ onSubmit, validate, initialValues = {} }) => {
   const classes = useStyles();
 
   return (
