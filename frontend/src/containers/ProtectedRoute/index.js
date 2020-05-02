@@ -9,7 +9,6 @@ const ProtectedRoute = props => {
   const dispatch = useDispatch();
   const history = useHistory();
   const token = useSelector(state => state.loggedUser.token);
-  console.log(token)
   
   useEffect(() => {
     const storageToken = localStorage.getItem('token');
