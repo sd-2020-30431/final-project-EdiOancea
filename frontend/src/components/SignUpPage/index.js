@@ -46,7 +46,7 @@ const SignUpPage = ({ onSubmit, validate, submitError }) => {
         validate,
         render: ({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <Container component="main" maxWidth="xs" size="xs">
+            <Container component="main" maxWidth="xs">
               <CssBaseline />
               <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -96,7 +96,7 @@ const SignUpPage = ({ onSubmit, validate, submitError }) => {
                     />
                   </Grid>
                 </Grid>
-                <Error error={submitError} touched alwaysThere/>
+                <Error error={submitError} touched alwaysThere />
                 <Button
                   type="submit"
                   fullWidth
