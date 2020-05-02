@@ -4,8 +4,12 @@ export default ({ db: { User } }) => ({
     update: async (id, body) => await User.update(body, { where: { id } }),
     delete: async id => await User.destroy({ where: { id } }),
     getByEmail: async email => await User.findOne({ 
-        where: { email }, 
-        scope: 'auth',
+        where: { 
+            email,
+        },  
+        attributes: {
+            include: 'password',
+        },
     }),
     isEmailUsed: async email => !!await User.findOne({ 
         where: { email }, 

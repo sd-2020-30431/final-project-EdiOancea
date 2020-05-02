@@ -37,11 +37,6 @@ module.exports = (sequelize, DataTypes) => {
 				exclude: ['password'],
 			},
 		},
-		scopes: {
-			auth: {
-				attributes: ['password', 'email'],
-			},
-		},
 	});
 
   	User.beforeCreate(user => {
@@ -49,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
 		user.email = user.email.toLowerCase();
 	});
 
-	User.associate = ({ WaterEntry, Ingredient, IngredientEntry }) => {
+	User.associate = ({ WaterEntry, IngredientEntry }) => {
 		User.hasMany(WaterEntry, { as: 'waterEntries' });
 		User.hasMany(IngredientEntry);
 	};
