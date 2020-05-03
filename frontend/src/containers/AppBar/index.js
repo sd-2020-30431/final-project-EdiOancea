@@ -29,7 +29,7 @@ const AppBar = () => {
 				handleClose,
 				handleSignOut,
 				anchorEl,
-				showAnchor: !!token,
+				authenticated: !!token,
 			}}
 		/>
 	);
