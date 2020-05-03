@@ -1,7 +1,11 @@
 import React from 'react';
 
-import PageLayout from 'components/PageLayout';
+import DashboardComponent from 'components/Dashboard';
 
-const Dashboard = () => <PageLayout />;
+const Dashboard = () => {
+    return (
+        <DashboardComponent />
+    );
+};
 
 export default Dashboard;
