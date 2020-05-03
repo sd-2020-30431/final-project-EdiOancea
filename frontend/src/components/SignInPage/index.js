@@ -14,10 +14,11 @@ const SignInPage = ({ onSubmit, validate, submitError }) => (
         validate,
         title: 'Sign in',
         submitButton: {
-          text: 'Sign up',
+          text: 'Sign in',
         },
         secondaryButton: {
           text: 'Don\'t have an account? Sign up!',
+          link: '/signup',
         },
         submitError,
       }}
