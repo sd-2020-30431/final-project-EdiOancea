@@ -1,14 +1,16 @@
 export default ({ ErrorService: { throwValidationError } }) => ({
     validateIngredient: ({ calories, protein, carbohydrates, fat}) => {
-        if (protein + carbohydrates + fat > 100) {
+        const [cal, pro, carb, fats] = [calories, protein, carbohydrates, fat].map(e => parseInt(e));
+
+        if (pro + carb + fats > 100) {
             throwValidationError('Too much macros.');
         }
         
-        if (calories > 900) {
+        if (cal > 900) {
             throwValidationError('Too many calories.');
         }
 
-        if (protein * 4 + carbohydrates * 4 + fat * 9 !== calories) {
+        if (pro * 4 + carb * 4 + fats * 9 !== cal) {
             throwValidationError('Calories and macros don\'t match.');
         }
     },
