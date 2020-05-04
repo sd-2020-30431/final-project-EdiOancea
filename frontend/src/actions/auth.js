@@ -14,8 +14,7 @@ export const signOut = () => dispatch => {
 };
 
 export const signUp = data => async dispatch => {
-  const res = await request('POST', '/users', data);
-  const result = await res.json();
+  const result = await request('POST', '/users', data);
   const { error } = result;
 
   if (error) {
@@ -29,8 +28,7 @@ export const signUp = data => async dispatch => {
 };
 
 export const signIn = data => async dispatch => {
-  const res = await request('POST', '/auth', data);
-  const result = await res.json();
+  const result = await request('POST', '/auth', data);
   const { token, error } = result;
 
   if (token) {

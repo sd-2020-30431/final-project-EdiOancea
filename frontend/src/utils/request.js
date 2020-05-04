@@ -1,8 +1,8 @@
-export default (method, path, body) => {
+export default async (method, path, body) => {
     const token = localStorage.getItem('token');
     const authHeader = token ? `Bearer ${token}` : '';
 
-    return fetch(`http://localhost:5000${path}`, {
+    const res = await fetch(`http://localhost:5000${path}`, {
         method,
         headers: {
             'Content-Type': 'application/json',
@@ -10,4 +10,6 @@ export default (method, path, body) => {
         },
         body: JSON.stringify(body),
     });
+
+    return await res.json();
 };
