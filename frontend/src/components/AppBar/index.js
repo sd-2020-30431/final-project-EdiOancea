@@ -8,6 +8,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
+import DayPicker from 'containers/DayPicker';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -26,7 +28,7 @@ const MenuAppBar = ({
   handleClose,
   handleSignOut,
   anchorEl,
-  showAnchor,
+  authenticated,
 }) => {
   const classes = useStyles();
 
@@ -34,7 +36,7 @@ const MenuAppBar = ({
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {showAnchor && (
+          {authenticated && (
             <>
               <IconButton
                 {...{
@@ -70,6 +72,11 @@ const MenuAppBar = ({
           <Typography variant="h6" className={classes.title}>
             Fitnesse
           </Typography>
+          {authenticated && (
+            <div className={classes.dayPicker}>
+              <DayPicker />
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </div>
