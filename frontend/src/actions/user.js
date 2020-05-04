@@ -6,10 +6,10 @@ export const setUser = user => ({
 })
 
 export const getLoggedUser = () => async dispatch => {
-	const res = await request('GET', '/users/me');
-	const user = await res.json();
+	const user = await request('GET', '/users/me');
+	const { error } = user;
 
-	if (!user.error) {
+	if (!error) {
 		dispatch(setUser(user));
 	}
 };

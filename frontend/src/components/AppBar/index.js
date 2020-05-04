@@ -27,6 +27,7 @@ const MenuAppBar = ({
   handleMenu, 
   handleClose,
   handleSignOut,
+  handleAddIngredient,
   anchorEl,
   authenticated,
 }) => {
@@ -66,6 +67,7 @@ const MenuAppBar = ({
                 }}
               >
                 <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
+                <MenuItem onClick={handleAddIngredient}>Add Ingredient</MenuItem>
               </Menu>
             </>
           )}
