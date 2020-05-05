@@ -17,10 +17,10 @@ const schema = Yup.object().shape({
     .test({
       name: 'passwordMatch', 
       message: 'This field must match the password field.', 
-      test: function(value) {
+      test: function(repeatPassword) {
         const { password } = this.options.context.values;
 
-        return value === password;
+        return repeatPassword === password;
       },
     }),
 });

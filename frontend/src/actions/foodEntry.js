@@ -6,8 +6,7 @@ export const setFoodEntries = foodEntries => ({
 });
 
 export const getFoodEntries = () => async dispatch => {
-    const res = await request('GET', '/entries/food');
-    const foodEntries = await res.json();
+    const foodEntries = await request('GET', '/entries/food');
     const { error } = foodEntries;
 
     if (!error) {
