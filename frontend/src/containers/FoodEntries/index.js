@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
+
+import FoodEntriesComponent from 'components/FoodEntries';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { getFoodEntries } from 'actions/foodEntry';
-import DashboardComponent from 'components/Dashboard';
 import { selectFoodEntries } from 'selectors/foodEntry';
+import { getFoodEntries } from 'actions/foodEntry';
 
-const Dashboard = () => {
+const FoodEntries = () => {
     const dispatch = useDispatch();
     const entries = useSelector(selectFoodEntries);
 
     useEffect(() => {
         dispatch(getFoodEntries());
     }, [dispatch]);
-    
+
     return (
-        <DashboardComponent 
+        <FoodEntriesComponent 
             entries={entries}
         />
     );
 };
 
-export default Dashboard;
+export default FoodEntries;
