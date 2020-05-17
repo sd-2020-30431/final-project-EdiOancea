@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import IngredientPageComponent from 'components/IngredientPage';
-import getValidate from 'containers/forms/getValidate';
+import getValidate from 'containers/form/getValidate';
 import { createIngredient } from 'actions/ingredient';
 
 const schema = Yup.object().shape({

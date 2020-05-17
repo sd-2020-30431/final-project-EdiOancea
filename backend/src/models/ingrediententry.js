@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
 		underscored: true,
 		defaultScope: {
 			attributes: {
-				exclude: ['ingredientId', 'UserId', 'IngredientId'],
+				exclude: ['UserId', 'IngredientId'],
 			},
 		},
 	});

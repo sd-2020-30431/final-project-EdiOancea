@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 
 import SignInPageComponent from 'components/SignInPage';
-import getValidate from 'containers/forms/getValidate';
+import getValidate from 'containers/form/getValidate';
 import { signIn } from 'actions/auth';
 
 const schema = Yup.object().shape({

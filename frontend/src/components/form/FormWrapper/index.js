@@ -45,13 +45,15 @@ const FormWrapper = ({
             {...{
                 onSubmit,
                 validate,
-                render: ({ handleSubmit }) => (
+                render: ({ handleSubmit, form: { reset } }) => (
                     <form onSubmit={handleSubmit}>
                         <div className={classes.container}>
                             <CssBaseline />
-                            <Typography component="h1" variant="h5" className={classes.title}>
-                                {title}
-                            </Typography>
+                            {title && (
+                                <Typography component="h1" variant="h5" className={classes.title}>
+                                    {title}
+                                </Typography>
+                            )}
                             {children}
                             <Error error={submitError} touched alwaysThere />
                             <Button

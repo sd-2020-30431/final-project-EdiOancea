@@ -6,27 +6,27 @@ import { getLoggedUser } from 'actions/user';
 import { authenticateUser } from 'actions/auth';
 
 const ProtectedRoute = props => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const token = useSelector(state => state.loggedUser.token);
-  
-  useEffect(() => {
-    const storageToken = localStorage.getItem('token');
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const token = useSelector(state => state.loggedUser.token);
 
-    if (!token && !storageToken) {
-      history.push('/signin');
-    }
+	useEffect(() => {
+		const storageToken = localStorage.getItem('token');
 
-    if (!token) {
-      dispatch(authenticateUser(storageToken));
-    }
-  }, [token, history, dispatch]);
+		if (!token && !storageToken) {
+			history.push('/signin');
+		}
 
-  useEffect(() => {
-    dispatch(getLoggedUser());
-  }, [token, dispatch]);
+		if (!token) {
+			dispatch(authenticateUser(storageToken));
+		}
+	}, [token, history, dispatch]);
 
-  return <Route {...props} />;
+	useEffect(() => {
+		dispatch(getLoggedUser());
+	}, [token, dispatch]);
+
+	return <Route {...props} />;
 };
 
 export default ProtectedRoute;

@@ -7,7 +7,7 @@ import UnprotectedRoute from 'containers/UnprotectedRoute';
 import SignUpPage from 'containers/SignUpPage';
 import SignInPage from 'containers/SignInPage';
 import IngredientPage from 'containers/IngredientPage';
-import Dashboard from 'containers/Dashboard';
+import Dashboard from 'components/Dashboard';
 
 const App = () => (
 	<Router>
