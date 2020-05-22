@@ -21,14 +21,14 @@ const FoodEntryForm = ({
             submitError,
         }}
     >
-    <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-            <SelectField name="ingredientId" label="Ingredient" options={ingredients} />
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+                <SelectField name="ingredientId" label="Ingredient" options={ingredients} />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <TextField name="quantity" label="Quantity" />
+            </Grid>
         </Grid>
-        <Grid item xs={12} sm={6}>
-            <TextField name="quantity" label="Quantity" />
-        </Grid>
-    </Grid>
     </FormWrapper>
 );
 

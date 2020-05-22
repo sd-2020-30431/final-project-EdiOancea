@@ -44,7 +44,7 @@ const FoodEntries = ({ entries, deleteFoodEntry }) => {
                 </TableHead>
                 <TableBody>
                     {entries.map(({ id, quantity, ingredient: { name, calories, fat, carbohydrates, protein } = {} }) => (
-                        <TableRow key={name}>
+                        <TableRow key={id}>
                             <TableCell component="th" scope="row">
                                 {name}
                             </TableCell>
