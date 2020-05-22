@@ -1,6 +1,6 @@
 export default ({ WaterEntryRepository, ErrorService: { throwValidationError } }) => ({
     create: async body => {
-        try {
+        try {            
             return await WaterEntryRepository.create(body);
         } catch ({ errors }) {
             throwValidationError(errors[0].message);
