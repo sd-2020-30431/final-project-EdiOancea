@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        maxWidth: '500px',
+        maxWidth: '650px',
     },
     title: {
 		margin: theme.spacing(1),
