@@ -13,12 +13,12 @@ const IngredientPage = ({ onSubmit, validate, submitError }) => (
                 onSubmit,
                 validate,
                 title: 'Add a new ingredient',
-                submitButton: {
-                text: 'Submit',
+                    submitButton: {
+                    text: 'Submit',
                 },
                 secondaryButton: {
-                text: 'Is the ingredient already here? Add a food entry!',
-                link: '/food-entry',
+                    text: 'Is the ingredient already here? Add a food entry!',
+                    link: '/',
                 },
                 submitError,
             }}

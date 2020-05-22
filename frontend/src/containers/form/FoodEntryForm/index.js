@@ -8,11 +8,11 @@ import FoodEntryFormComponent from 'components/form/FoodEntryForm';
 import { getIngredients } from 'actions/ingredient';
 
 const schema = Yup.object().shape({
-    ingredientId: Yup.number().required('This field is required'),
+    ingredientId: Yup.number('This must be a numeric value').required('This field is required'),
     quantity: Yup
         .number('This must be a numeric value')
         .required('Quantity is a required field')
-        .min(0),
+        .min(0.01, 'You need to add at least 1 gram'),
 });
 
 const FoodEntryForm = () => {
@@ -29,16 +29,14 @@ const FoodEntryForm = () => {
     }, [dispatch]);
 
     return (
-        <div>
-            <FoodEntryFormComponent
-                {...{
-                    onSubmit: handleSubmit,
-                    validate,
-                    submitError,
-                    ingredients,
-                }}
-            />
-        </div>
+        <FoodEntryFormComponent
+            {...{
+                onSubmit: handleSubmit,
+                validate,
+                submitError,
+                ingredients,
+            }}
+        />
     );
 };
 

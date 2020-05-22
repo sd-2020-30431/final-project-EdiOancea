@@ -11,6 +11,11 @@ export const addFoodEntry = foodEntry => ({
     payload: foodEntry,
 });
 
+export const removeFoodEntry = id => ({
+    type: 'REMOVE_FOOD_ENTRY',
+    payload: id,
+});
+
 export const getFoodEntries = () => async dispatch => {
     const foodEntries = await request('GET', '/entries/food');
     const { error } = foodEntries;
@@ -30,4 +35,14 @@ export const createFoodEntry = data => async dispatch => {
 
     dispatch(addFoodEntry(foodEntry));
     dispatch(clearFormError('foodEntry'));
+};
+
+export const deleteFoodEntry = id => async dispatch => {
+    const { error } = await request('DELETE', `/entries/food/${id}`);
+
+    if (error) {
+        return;
+    }
+
+    dispatch(removeFoodEntry(id));
 };

@@ -6,6 +6,8 @@ export default (state = initialState, action) => {
             return [...action.payload];
         case 'ADD_FOOD_ENTRY':
             return [...state, action.payload];
+        case 'REMOVE_FOOD_ENTRY':
+            return state.filter(({ id }) => id !== action.payload);
         default:
             return state;
     }
